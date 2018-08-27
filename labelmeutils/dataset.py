@@ -15,7 +15,6 @@ class LabelMeDataset(object):
     def __getitem__(self, index):
         # label
         label_path = self.label_paths[index]
-
         label_dict = load_json(label_path)
         shapes = label_dict['shapes']
 
@@ -26,7 +25,7 @@ class LabelMeDataset(object):
         return image, shapes
 
     def __len__(self):
-        return len(self.images)
+        return len(self.label_paths)
 
     def _get_vaild_label_paths(self):
         label_paths = []
